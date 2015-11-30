@@ -1,0 +1,14 @@
+div(ng-controller='NavbarCtrl')
+  header.app-header-top
+    div.app-header-wrapper
+      span.menu-icon.pull-left
+        a.sidebar-toggle(href="#")
+          i.fa.fa-check-square-o
+      a.brand-logo.capitalize-all(href="#") Contacts Manager
+  aside.sidebar
+    div.app-sidebar
+      ul
+        li.label Menu
+        li(ng-repeat='item in menu', ng-class='{active: isActive(item.link)}')
+          a(ng-href='{{item.link}}') {{item.title}}
+

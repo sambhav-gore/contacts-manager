@@ -1,0 +1,38 @@
+/*We are going to override the bootstrap Sass variables in this file */
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,500,700,400);
+
+$font-family-sans-serif: 'Roboto', serif;
+
+/*We dont want rounded corners..
+	is this correct way ? Well, use till correct solution is found.
+*/
+$border-radius-base:        2px;
+$border-radius-large:       2px;
+$border-radius-small:       2px;
+
+$brand-primary:							#039be5;
+$link-color:								$brand-primary;
+$floating-btn-color:								$brand-primary;
+$link-primary:								$brand-primary;
+//** Link hover color set via `lighten()` function.
+$link-hover-color:      lighten($link-color, 15%);
+//** Link hover decoration.
+$link-hover-decoration: none;
+
+$table-cell-padding:				14px 8px;
+
+/*variables created specially for us*/
+$field-label-color: rgba(0,0,0,0.4);
+$field-border-color: rgba(0,0,0,0.08);
+
+$field-label-focus-color: $link-color;
+$field-label-error-color: rgba(159,0,0,1);
+$field-label-success-color: green;
+
+$field-boder-focus-color: $link-color;
+$field-border-error-color: red;
+$field-border-success-color: green;
+
+
+
+/*mixins for us*/
