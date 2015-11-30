@@ -1,17 +1,19 @@
 div(ng-include='"components/navbar/navbar.html"')
 
 section.main-content-area
-  .page-title
-    .row
-      .col-sm-12
-        h2 Contacts
-        ol.breadcrumb
-          li
-            a(href='/') Home
-          li.active Contacts
-    a.floating-button(href='/#', tooltip='Add New Contact') +
-  .page-content-area
-    .row
-      .col-sm-12
-      |  This is the contact view.
+	.page-title
+		.row
+			.col-sm-12
+				h2 Contacts
+				ol.breadcrumb
+					li
+						a(href='/') Home
+					li.active Contacts
+		a.floating-button(href='/#', tooltip='Add New Contact') +
+	.page-content-area
+		.row
+			.col-sm-12 
+				ul.contacts-list
+					li.contact-list-item(ng-repeat='contact in contacts')
+						div.contact-card {{contact.name}}
 div(ng-include='"components/footer/footer.html"')

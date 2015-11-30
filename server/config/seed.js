@@ -5,27 +5,38 @@
 
 'use strict';
 
-var Thing = require('../api/thing/thing.model');
+var Contact = require('../api/contact/contact.model');
 
 
-Thing.find({}).remove(function() {
-  Thing.create({
-    name : 'Development Tools',
-    info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
-  }, {
-    name : 'Server and Client integration',
-    info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
-  }, {
-    name : 'Smart Build System',
-    info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
-  },  {
-    name : 'Modular Structure',
-    info : 'Best practice client and server structures allow for more code reusability and maximum scalability'
-  },  {
-    name : 'Optimized Build',
-    info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
-  },{
-    name : 'Deployment Ready',
-    info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
-  });
+Contact.find({}).remove(function() {
+  Contact.create({
+      name : 'Terrence S. Hatfield',
+      tel: '651-603-1723',
+      email: 'TerrenceSHatfield@rhyta.com'
+    },
+    {
+      name : 'Chris M. Manning',
+      tel: '513-307-5859',
+      email: 'ChrisMManning@dayrep.com'
+    },
+    {
+      name : 'Ricky M. Digiacomo',
+      tel: '918-774-0199',
+      email: 'RickyMDigiacomo@teleworm.us'
+    },
+    {
+      name : 'Michael K. Bayne',
+      tel: '702-989-5145',
+      email: 'MichaelKBayne@rhyta.com'
+    },
+    {
+      name : 'John I. Wilson',
+      tel: '318-292-6700',
+      email: 'JohnIWilson@dayrep.com'
+    },
+    {
+      name : 'Rodolfo P. Robinett',
+      tel: '803-557-9815',
+      email: 'RodolfoPRobinett@jourrapide.com'
+    });
 });
