@@ -9,7 +9,7 @@ section.main-content-area
 					li
 						a(href='/') Home
 					li.active Contacts
-		a.floating-button(href='/#', uib-tooltip='Add New Contact') +
+		a.floating-button(href='' ng-click="displayAddEditContact('Add New Contact', {})", uib-tooltip='Add New Contact') +
 	.page-content-area
 		.row
 			.col-sm-12 
@@ -24,7 +24,7 @@ section.main-content-area
 								div.email 
 									a(href="email:{{contact.email}}"){{contact.email}}
 						div.tool-bar 
-							a(href="" uib-tooltip="Edit Contact") 
+							a(href="" uib-tooltip="Edit Contact" ng-click="displayAddEditContact('Edit Contact', contact)") 
 								i.fa.fa-pencil
 							a(href="" ng-click="removeContact(contact)" uib-tooltip="Remove Contact") 
 								i.fa.fa-trash

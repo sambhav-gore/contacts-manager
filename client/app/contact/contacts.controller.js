@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('redmartApp')
-  .controller('ContactsCtrl', function ($scope, $http, $confirm) {
+  .controller('ContactsCtrl', function ($scope, $http, $uibModal, $confirm) {
     $scope.contacts = {};
 
     /*We can use this promise to bind to preloader other components*/
@@ -20,6 +20,38 @@ angular.module('redmartApp')
 
     $scope.getContacts();
 
+    $scope.displayAddEditContact = function(title, contactObj){
+    	var modalInstance = $uibModal.open({
+	      animation: true,
+	      templateUrl: 'components/contact/add-edit-contact.html',
+	      resolve : {
+	      	title: function(){ return title; },
+	      	contact: function () {return contactObj; }
+	      },
+	      controller: 'AddEditContactsCtrl'
+	    });
+
+	    modalInstance.result.then(function (contactObj) {
+	    	//if we have an id, this is an edit operation, else this is an add op
+	    	if(!angular.isUndefined(contactObj._id)){
+		      $http.put(
+	          '/api/contacts/'+contactObj._id, 
+	          contactObj
+	        ).then( function() {
+	          $scope.getContacts();
+	        })
+	      }else {
+	      	$http.post(
+	          '/api/contacts/', 
+	          contactObj
+	        ).then( function() {
+	          $scope.getContacts();
+	        })
+	      }
+	    });
+    }
+
+
 
    	$scope.removeContact = function(contact) {
 
@@ -30,6 +62,7 @@ angular.module('redmartApp')
 		      })
         });
     };
+
 
 
     /*utility function to generate a random image path*/
