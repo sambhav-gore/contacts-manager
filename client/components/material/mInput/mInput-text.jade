@@ -1,0 +1,7 @@
+.form-group(ng-class='{ "has-focus": hasFocus,\
+"has-success": form.{{name}}.$valid,\
+"has-error": form.{{name}}.$invalid && (form.$submitted || form.{{name}}.$touched),\
+"is-empty": !form.{{name}}.$viewValue }')
+	input.form-control(type='text', name='{{name}}', ng-model='ngModel' ng-model-options='{ debounce: 100 }', ng-required='required', ng-focus='hasFocus=true', ng-blur='hasFocus=false')
+	label.field-control-label.floating-label.text-small.text-muted {{label}}
+	p.help-block(ng-if='required', ng-show='form.{{name}}.$error.required && (form.{{name}}.$touched || form.$submitted)') {{label}} is required

@@ -21,5 +21,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 // injector
 @import 'contact/contacts.scss';
 @import 'main/main.scss';
+@import 'scss/_forms.scss';
 @import 'scss/custom.scss';
+@import 'material/mInput/mInput.scss';
 // endinjector

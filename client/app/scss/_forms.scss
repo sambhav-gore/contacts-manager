@@ -1,0 +1,194 @@
+.material {
+	.display-field-label,.field-control-label {
+		margin-bottom: 6px;
+		color: $field-label-color;
+		padding: 0;
+	}
+
+	.display-field-value {
+		padding: 0 0 8px;
+		border-bottom: 1px solid $field-border-color;
+		margin-bottom: 20px;
+
+		&.no-border {
+			border: none;
+			margin-bottom: 0;
+		}
+	}
+
+	
+
+	.form-group{
+		margin-bottom: 42px;
+
+		input[type="text"],input[type="email"],input[type="password"],textarea {
+			padding: 32px 0 18px 0;
+			font-size: 15px;
+			font-weight: 500;
+		}
+
+		textarea {
+			margin-top:24px;
+			padding-top:0;
+		}
+
+		select {
+			padding: 0;
+		  margin-top: 18px;
+		  font-weight: 500;
+		}
+
+		.form-control{
+			width: 100%;
+			border-radius: 0;
+			box-shadow: none;
+			border: 1px solid $field-border-color;
+			border-width: 0 0 1px;
+			position: relative;
+			background: transparent;
+			z-index:1;
+		}
+
+
+		
+		/*Labels for the field
+			different styles for different states below
+		*/
+		.field-control-label {
+			position: absolute;
+			transition: all 0.5s ease;
+			top: 0;
+		}
+
+		/*
+			bottom border achieved throug pseudo :after element.
+			different styles for different states below
+		*/
+		&::after{
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 2px;
+			bottom: 0;
+			left:50%;
+			z-index: 2000;
+			background: $field-border-color;
+			transition: all 0.5s ease;
+		}
+
+		&.select::after{
+			top:50px;
+			bottom:none;
+		}
+
+		/*
+			For the help/error messages below the field	
+		*/
+		.help-block {
+			position: absolute;
+			line-height: 0;
+			font-weight: 300;
+			font-size: 12px;
+			line-height: 24px;
+			transition: all 0.5s ease;
+			margin:0;
+
+			&.ng-hide {
+				display: block !important;
+				visibility: hidden;
+				opacity: 0;
+				/* top: calc(100% - 24px); */
+			}
+		}
+
+		&.is-empty {
+			&:not(.has-focus) .field-control-label.floating-label {
+				font-weight: 400;
+				font-size: 14px;
+				top:24px;
+			}
+		}
+
+		
+
+		&.has-focus {
+			.field-control-label {
+				color: $field-label-focus-color;
+			}
+
+			&::after {
+				left:15px;
+				background: $field-boder-focus-color;
+				width: calc(100% - 30px);
+			}
+		}
+
+		&.has-error {
+			
+			.field-control-label {
+				color: $field-label-error-color;
+			}
+
+			.form-control {
+				box-shadow: none; /*Bootstrap override*/
+			}
+
+			.help-block:not(.ng-hide) {
+			    position: absolute;
+			    color: $field-label-error-color;
+			    opacity: 1;
+			    visibility: visible;
+			    /* top:100%; */
+			}
+
+			&::after {
+				left:15px;
+				background: $field-border-error-color;
+				width: calc(100% - 30px);
+			}
+
+		}
+
+		&.has-success.has-focus {
+			.field-control-label {
+				color: $field-label-success-color;
+			}
+
+			&.has-focus::after {
+				left:15px;
+				background: $field-border-success-color;
+				width: calc(100% - 30px);
+			}
+
+			.form-control {
+				box-shadow: none; /*Bootstrap override*/
+			}
+		}
+	}
+}
+
+a > i {
+	margin-right: 10px;
+}
+
+/*
+element.style {
+  position: absolute;
+  font-size: 15px;
+  font-weight: 300;
+  top: 0;
+  overflow: visible;
+  z-index: 1001;
+  transition: all 0.25s ease;
+}
+
+
+element.style {
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  width: calc(100% - 30px);
+  right: 15px;
+}
+
+*/
