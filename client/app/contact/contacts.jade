@@ -9,11 +9,23 @@ section.main-content-area
 					li
 						a(href='/') Home
 					li.active Contacts
-		a.floating-button(href='/#', tooltip='Add New Contact') +
+		a.floating-button(href='/#', uib-tooltip='Add New Contact') +
 	.page-content-area
 		.row
 			.col-sm-12 
-				ul.contacts-list
-					li.contact-list-item(ng-repeat='contact in contacts')
-						div.contact-card {{contact.name}}
+				ul.contacts-list.row
+					li.contact-list-item.col-md-6.col-lg-4(ng-repeat='contact in contacts')
+						div.contact-card 
+							div.thumb 
+								img(ng-src="{{contact.imageSrc}}", alt="")
+							div.details
+								div.heading {{contact.name}} 
+								div.tel {{contact.tel}}
+								div.email 
+									a(href="email:{{contact.email}}"){{contact.email}}
+						div.tool-bar 
+							a(href="" uib-tooltip="Edit Contact") 
+								i.fa.fa-pencil
+							a(href="" ng-click="removeContact(contact)" uib-tooltip="Remove Contact") 
+								i.fa.fa-trash
 div(ng-include='"components/footer/footer.html"')
