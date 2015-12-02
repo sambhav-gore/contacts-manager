@@ -44,7 +44,7 @@ describe('Routes: UI Router Configurations', function () {
 
         describe('when empty', function () {
           beforeEach(function () {
-            mockTemplate('app/contact/contacts.html');
+            mockTemplate('app/contact/views/contacts.html');
           });
 
           it('should go to the contacts state', function () {
@@ -55,7 +55,7 @@ describe('Routes: UI Router Configurations', function () {
 
         describe('/', function () {
           beforeEach(function () {
-            mockTemplate('app/contact/contacts.html');
+            mockTemplate('app/contact/views/contacts.html');
           });
 
           it('should go to the contacts state', function () {
@@ -67,7 +67,7 @@ describe('Routes: UI Router Configurations', function () {
 
         describe('/contacts', function () {
           beforeEach(function () {
-            mockTemplate('app/contact/contacts.html');
+            mockTemplate('app/contact/views/contacts.html');
           });
 
           it('should go to the contacts state', function () {

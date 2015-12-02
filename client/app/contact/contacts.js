@@ -5,7 +5,7 @@ angular.module('redmartApp')
     $stateProvider
       .state('contacts', {
         url: '/contacts',
-        templateUrl: 'app/contact/contacts.html',
+        templateUrl: 'app/contact/views/contacts.html',
         controller: 'ContactsCtrl'
       });
   });

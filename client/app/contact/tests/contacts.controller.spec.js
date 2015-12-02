@@ -40,9 +40,17 @@ describe('Controller: ContactsCtrl', function () {
               )
           };
 
+
+          confirmInstance = jasmine.createSpy('confirmInstance').andReturn(
+                {
+                    then: jasmine.createSpy('confirmInstance.then')
+                }
+              )
+
           ContactsCtrl = $controller('ContactsCtrl', {
             $scope: scope,
-            $uibModal: modalInstance
+            $uibModal: modalInstance,
+            $confirm: confirmInstance
           });
 
 
@@ -56,5 +64,12 @@ describe('Controller: ContactsCtrl', function () {
     it('should open the modal for creating new contact', function() {
       scope.displayAddEditContact('add contact', {});
       expect(modalInstance.open).toHaveBeenCalled();
+    })
+
+    describe('Confirmation before deleting', function(){
+      it('should display confirmation before deleting a contact', function() {
+        scope.removeContact({});
+        expect(confirmInstance).toHaveBeenCalled();
+      })
     })
 }); 

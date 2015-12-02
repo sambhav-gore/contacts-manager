@@ -20,6 +20,7 @@ describe('Controller: AddEditContact Ctrl', function () {
           then: jasmine.createSpy('modalInstance.result.then')
         }
       };
+
       //create a mock cntact object (which is passed to the modal)
       contactObj = {
         name: 'Name',

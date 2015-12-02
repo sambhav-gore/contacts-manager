@@ -1,0 +1,15 @@
+div.modal-header
+	h3.modal-title {{title}}
+form(name='form', ng-submit='create(form)', novalidate='')
+	div.modal-body
+		ul
+			li(ng-repeat="contact in contacts") {{contact.name}}
+		div.material
+				.row
+					m-input.col-sm-12(type='text', name='name', label='Name', ng-model='contact.name', required)
+					m-input.col-sm-12(type='email', name='email', label='Email', ng-model='contact.email' required)
+					m-input.col-sm-12(type='text', name='tel', label='Telephone', ng-model='contact.tel')
+
+	div.modal-footer
+		button.btn.btn-primary(type='button' ng-click='save(form)') Save
+		a.btn.btn-default(ng-click='cancel()') Cancel

@@ -23,7 +23,7 @@ angular.module('redmartApp')
     $scope.displayAddEditContact = function(title, contactObj){
     	var modalInstance = $uibModal.open({
 	      animation: true,
-	      templateUrl: 'components/contact/add-edit-contact.html',
+	      templateUrl: 'app/contact/views/add-edit-contact.html',
 	      resolve : {
 	      	title: function(){ return title; },
 	      	contact: function () {return contactObj; }
@@ -51,19 +51,15 @@ angular.module('redmartApp')
 	    });
     }
 
-
-
    	$scope.removeContact = function(contact) {
-
-   		 $confirm({text: 'Are you sure you want to delete?', title: 'Delete Contact', ok: 'Yes', cancel: 'No'})
-        .then(function() {
-          $http.delete('/api/contacts/' + contact._id).success(function(){
-		      	$scope.getContacts();
-		      })
-        });
+   		//Ask for confirmation before deleting
+			$confirm({text: 'Are you sure you want to delete?', title: 'Delete Contact', ok: 'Yes', cancel: 'No'})
+				.then(function() {
+					$http.delete('/api/contacts/' + contact._id).success(function(){
+					$scope.getContacts();
+				})
+			});
     };
-
-
 
     /*utility function to generate a random image path*/
     $scope.getRandomImage = function(){
