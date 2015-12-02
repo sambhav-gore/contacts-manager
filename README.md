@@ -19,3 +19,15 @@ bower install
 ```
 grunt serve
 ```
+
+##Demo
+
+See the demo at [this link](http://128.199.141.79:8080/)
+
+##Test
+
+Run the tests with following command
+
+```
+grunt karma
+```
