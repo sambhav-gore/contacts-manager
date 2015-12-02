@@ -13,6 +13,9 @@ module.exports = function(config) {
     files: [
       'client/bower_components/jquery/dist/jquery.js',
       'client/bower_components/angular/angular.js',
+
+      'client/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'client/bower_components/angular-confirm-modal/angular-confirm.min.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       'client/bower_components/angular-resource/angular-resource.js',
       'client/bower_components/angular-cookies/angular-cookies.js',
@@ -30,6 +33,7 @@ module.exports = function(config) {
       'client/components/**/*.jade',
       'client/app/**/*.html',
       'client/components/**/*.html'
+
     ],
 
     preprocessors: {
@@ -72,6 +76,11 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: ['PhantomJS'],
+
+
+    reporters: ['story'],
+
+
 
 
     // Continuous Integration mode
